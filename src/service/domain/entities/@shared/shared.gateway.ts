@@ -1,7 +1,7 @@
-export interface SharedGateway<AnyEntity> {
-  add(entity: AnyEntity): Promise<void>;
-  find(id: string): Promise<AnyEntity | null>;
-  findAll(active: boolean): Promise<AnyEntity[]>;
-  update(entity: AnyEntity): Promise<void>;
-  activate(entity: AnyEntity): Promise<void>;
+export interface SharedGateway<Input, Output> {
+  create(input: Input): Promise<Output>;
+  find(id: string): Promise<Output>;
+  findAll(active: boolean): Promise<Output[]>;
+  update(input: Input): Promise<void>;
+  activate(input: Input): Promise<void>;
 }

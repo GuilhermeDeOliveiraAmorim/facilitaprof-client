@@ -1,6 +1,10 @@
-import { SharedGateway } from "../@shared/shared.gateway";
 import Subject from "./subject.entity";
 
-export interface SubjectGateway extends SharedGateway<Subject> {
-    findAllByTeacherId(teacherId: string, active: boolean): Promise<Subject[]>;
+export interface SubjectGateway {
+  create(input: Input): Promise<Output>;
+  find(id: string): Promise<Output>;
+  findAll(active: boolean): Promise<Output[]>;
+  update(input: Input): Promise<void>;
+  activate(input: Input): Promise<void>;
+  findAllByTeacherId(teacherId: string, active: boolean): Promise<Subject[]>;
 }
